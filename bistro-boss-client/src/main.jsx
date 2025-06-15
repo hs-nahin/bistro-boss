@@ -1,10 +1,17 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router";
-import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import "./index.css";
+import Main from "./Layout/Main";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <div className="max-w-screen-xl mx-auto">
+    <RouterProvider router={router} />
+  </div>
 );
